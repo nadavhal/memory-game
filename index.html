@@ -12,20 +12,21 @@
             background-color: rgb(7, 189, 7);
             border: none;
             color: white;
-            padding: 1px 2px;
-            text-align: center;
+            padding: 3px 3px;
+            text-align: right;
             text-decoration: none;
             display: inline-block;
-            font-size: 15px;
+            font-size: 20px;
             transition-duration: 0.4s;
             cursor: pointer;
         }
         .board {
-            min-height: 700px;
-            width: 800px;
-            gap: 10px;
+            min-height: 650px;
+            width: 1200px;
+            gap: 50px;
             justify-content: center;
         }
+
         .card {
             width: 150px;
             height: 200px;
@@ -34,6 +35,7 @@
             font-size: xx-large;
             color: navy;
             font-weight: bolder;
+            background-image: url("cards/a.PNG");
         }
         .cardBack {
             content-visibility: hidden;
@@ -55,8 +57,8 @@
 <body>
     <div class="bg-secondary">
 
-        <button class="button" onclick="newGame()">Click Me!</button>
-        <div id="game-table" class="board p-5 d-flex flex-wrap">
+        <button class="button" onclick="newGame()">משחק חדש</button>
+        <div id="game-table" class="board m-5 d-flex flex-wrap">
         </div>
     </div>
 

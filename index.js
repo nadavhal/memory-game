@@ -1,5 +1,5 @@
 // variables:
-let srcCards = ["A", "B", "C", "D", "E", "F", "A", "B", "C", "D", "E", "F"];
+let srcCards = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"];
 let numOfCards = srcCards.length;
 let handOfCards = srcCards; // הקלפים שעל השולחן
 let board = document.getElementById("game-table");
@@ -20,7 +20,7 @@ function shuffle(){
 
 let hover = (eve) => {
     let x = eve.target.id;
-    document.getElementById(x).style.backgroundImage="url(cards/" + handOfCards[x] + ".png)"; 
+    document.getElementById(x).style.backgroundImage="url(" + handOfCards[x] + ".png)"; 
     console.log(eve.target);
 }
 let out = (even) => {
@@ -78,6 +78,7 @@ function createCards(){ // יצירת מקומות הקלפים
     for (n = 0; n < numOfCards; n++){
         cardDiv = document.createElement("div");
         cardDiv.id = n;
+        cardDiv.innerText = handOfCards[n];
         cardDiv.className = "noCard";
         cardDiv.onclick = cardClick;
         cardDiv.onmouseout = out;

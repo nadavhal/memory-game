@@ -20,7 +20,7 @@ function shuffle(){
 
 let hover = (eve) => {
     let x = eve.target.id;
-    document.getElementById(x).style.backgroundImage="url(" + handOfCards[x] + ".png)"; 
+    document.getElementById(x).style.backgroundImage="url(" + handOfCards[x] + ".PNG)"; 
     console.log(eve.target);
 }
 let out = (even) => {

@@ -4,9 +4,6 @@ let numOfCards = srcCards.length;
 let handOfCards = srcCards; // הקלפים שעל השולחן
 let board = document.getElementById("game-table");
 let flip1 = "";
-let scoreH = document.getElementById("Score");
-let score = 0;
-scoreH.innerHTML = score;
 
 // functions:
 function shuffle(){
@@ -22,48 +19,42 @@ function shuffle(){
 }
 function hover(event){
     let x = event.target;
-    // if (x != flip1){
-    //     x.style.backgroundImage="url(back2.jpg)"
-    // }
+    if (x != flip1){
+        x.style.backgroundImage="url(back2.jpg)"
+    }
 }
 function out (event){
     let x = event.target;
-    // if (x != flip1 || x.innerText != "no"){
-    //     x.style.backgroundImage="url(back.jpg)"
-    // }
+    if (x != flip1 || x.innerText != "no"){
+        x.style.backgroundImage="url(back.jpg)"
+    }
 }
 function pair(one, two){
-    two.className = "card"; 
+    document.getElementById(two.id).style.backgroundImage=`url(${handOfCards[two.id]}.PNG)`; 
+    alert("Well done!!");
     score += 2;
-    scoreH.innerHTML = score;
-    setTimeout(()=>{
-        one.className = "noCard";
-        two.className = "noCard";
-        flip1 = "";
-    }, 500)
-
+    one.style.backgroundImage="none";
+    two.style.backgroundImage="none";
+    one.innerText = "no";
+    two.innerText = "no";
+    flip1 = "";
 }
 function wrong(one, two){
-    two.className = "card"; 
-    setTimeout(()=>{
-        one.className = "cardBack";
-        two.className = "cardBack";
-        flip1 = "";
-    }, 500)
+    document.getElementById(two.id).style.backgroundImage=`url(${handOfCards[two.id]}.PNG)`; 
+    alert("wrong...");
+    one.style.backgroundImage="url(back.jpg)";
+    two.style.backgroundImage="url(back.jpg)";
+    flip1 = "";
 }
 let cardClick = (event) => {
     let x = event.target;
-    x.className = "card"; 
+    document.getElementById(x.id).style.backgroundImage=`url(${handOfCards[x.id]}.PNG)`; 
     if (flip1 == ""){
         flip1 = event.target;
-        console.log("1");
     } else if (flip1.innerText == x.innerText){
         pair(flip1, x);
-        console.log("2");
-    } else {
-        wrong(flip1, x);
-        console.log("3");
-    }
+    } else wrong(flip1, x);
+    
 }
 
 function drawCards(){ 
@@ -75,6 +66,7 @@ function drawCards(){
 function newGame(){ // התחלת המשחק
     shuffle();
     createCards(); 
+    drawCards();
 }
 
 function createCards(){ // יצירת מקומות הקלפים
@@ -82,7 +74,7 @@ function createCards(){ // יצירת מקומות הקלפים
         let cardDiv = document.createElement("div");
         cardDiv.id = n;
         cardDiv.innerText = handOfCards[n];
-        cardDiv.className = "cardBack";
+        cardDiv.className = "noCard";
         cardDiv.onclick = cardClick;
         cardDiv.onmouseout = out;
         cardDiv.onmouseover = hover;

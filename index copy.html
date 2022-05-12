@@ -15,19 +15,17 @@
             padding: 3px 3px;
             text-align: center;
             font-size: 20px;
+            transition-duration: 0.4s;
             cursor: pointer;
         }
         .board {
-            display: flex;
-            flex-wrap: wrap;
-            width: 50%;
-            gap: 10px;
+            min-height: 650px;
+            width: 1200px;
+            gap: 50px;
             justify-content: center;
-            align-items: center;
-            background-color: #61dafb;
         }
+
         .card {
-            box-shadow: 0 8px 16px 0 rgba(210, 64, 64, 0.2);
             width: 150px;
             height: 200px;
             text-align: center;
@@ -35,9 +33,7 @@
             font-size: xx-large;
             color: navy;
             font-weight: bolder;
-            background-image:none;
-            /* background-color: #61dafb; */
-            
+            background-image: url("cards/a.PNG");
         }
         .cardBack {
             content-visibility: hidden;
@@ -45,46 +41,28 @@
             height: 200px;
             background-image: url("back.jpg");
             background-position: center;
-            background-color: #61dafb;
-
         }
         .noCard {
-            pointer-events: none;
             content-visibility: hidden;
             width: 150px;
             height: 200px;
             color: gray;
-            background-image: none;
             background-position: center;
-            /* background-color: gray #6c757d; */
-        }
-        .mainDiv {
-            background-color: #61dafb;
-            text-align: center;
-        }
-        .detail {
-            position: absolute;
-            width: 50%;
-            right: 0%;
-            background-color: #61dafb;
+            background-color: gray #6c757d;
         }
     </style>
 </head>
-
 <body>
-    <div class="mainDiv">
-        <div class="detail">
-            <button class="button" onclick="newGame()">משחק חדש</button>
-            <div class="score">
-                <span>Your score:</span>
-                <p id="Score"></p>
-            </div>
+    <div class="bg-secondary">
 
-        </div>
-        <div id="game-table" class="board">
+        <button class="button" onclick="newGame()">משחק חדש</button>
+        <div id="game-table" class="board m-5 d-flex flex-wrap">
         </div>
     </div>
 
     <script src="index.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
